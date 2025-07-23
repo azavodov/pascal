@@ -1,0 +1,50 @@
+object Form3: TForm3
+  Left = 423
+  Height = 214
+  Top = 212
+  Width = 466
+  BorderStyle = bsDialog
+  Caption = 'Об авторе'
+  ClientHeight = 214
+  ClientWidth = 466
+  Font.CharSet = RUSSIAN_CHARSET
+  Font.Height = -24
+  Font.Name = 'Times New Roman'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Font.Style = [fsBold]
+  LCLVersion = '1.4.0.4'
+  object Label1: TLabel
+    Left = 32
+    Height = 26
+    Top = 24
+    Width = 372
+    Caption = 'Автор : Заводов Андрей Павлович'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 72
+    Height = 26
+    Top = 72
+    Width = 289
+    Caption = '@ : andrey0398@gmail.com'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 193
+    Height = 33
+    Top = 167
+    Width = 91
+    Caption = 'OK'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Label3: TLabel
+    Left = 72
+    Height = 26
+    Top = 120
+    Width = 212
+    Caption = 'http://vk.com/azavod'
+    ParentColor = False
+  end
+end
