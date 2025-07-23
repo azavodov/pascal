@@ -1,0 +1,345 @@
+object Form1: TForm1
+  Left = 490
+  Height = 414
+  Top = 236
+  Width = 348
+  BorderStyle = bsDialog
+  Caption = 'Pi analyzer'
+  ClientHeight = 414
+  ClientWidth = 348
+  OnCreate = FormCreate
+  LCLVersion = '1.4.0.4'
+  object Panel2: TPanel
+    Left = 0
+    Height = 416
+    Top = 0
+    Width = 350
+    ClientHeight = 416
+    ClientWidth = 350
+    Color = 16744576
+    ParentColor = False
+    TabOrder = 1
+    object Memo1: TMemo
+      Left = 8
+      Height = 184
+      Top = 192
+      Width = 328
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlue
+      Font.Height = -19
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
+      ScrollBars = ssAutoBoth
+      TabOrder = 0
+    end
+    object Edit1: TEdit
+      Left = 160
+      Height = 27
+      Top = 40
+      Width = 176
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlue
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 1
+      Text = '999999'
+    end
+    object Button1: TButton
+      Left = 8
+      Height = 33
+      Top = 112
+      Width = 328
+      Caption = 'Найти в ПИ'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlack
+      Font.Height = -24
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      OnClick = Button1Click
+      ParentFont = False
+      TabOrder = 2
+    end
+    object Label1: TLabel
+      Left = 48
+      Height = 31
+      Top = 0
+      Width = 266
+      Caption = 'Последовательность :'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clYellow
+      Font.Height = -27
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 24
+      Height = 26
+      Top = 40
+      Width = 125
+      Caption = 'Числовая - '
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clYellow
+      Font.Height = -24
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 24
+      Height = 26
+      Top = 72
+      Width = 132
+      Caption = 'Буквенная -'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clYellow
+      Font.Height = -24
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Edit2: TEdit
+      Left = 160
+      Height = 27
+      Top = 72
+      Width = 176
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlue
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 3
+    end
+    object Button3: TButton
+      Left = 0
+      Height = 33
+      Top = 384
+      Width = 352
+      Caption = 'СТАТИСТИКА'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -19
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      OnClick = Button3Click
+      ParentFont = False
+      TabOrder = 4
+    end
+    object Button5: TButton
+      Left = 8
+      Height = 33
+      Top = 152
+      Width = 131
+      Caption = 'Вывести ПИ'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -21
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      OnClick = Button5Click
+      ParentFont = False
+      TabOrder = 6
+    end
+    object Edit3: TEdit
+      Left = 160
+      Height = 31
+      Top = 152
+      Width = 64
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlue
+      Font.Height = -21
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 7
+      Text = '1'
+    end
+    object Edit4: TEdit
+      Left = 264
+      Height = 31
+      Top = 152
+      Width = 72
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlue
+      Font.Height = -21
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 8
+      Text = '10'
+    end
+    object Label4: TLabel
+      Left = 144
+      Height = 26
+      Top = 156
+      Width = 11
+      Caption = 'с'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clYellow
+      Font.Height = -24
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 232
+      Height = 26
+      Top = 156
+      Width = 26
+      Caption = 'по'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clYellow
+      Font.Height = -24
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object RadioButton1: TRadioButton
+      Left = 8
+      Height = 19
+      Top = 40
+      Width = 20
+      Checked = True
+      TabOrder = 11
+      TabStop = True
+    end
+    object RadioButton2: TRadioButton
+      Left = 8
+      Height = 19
+      Top = 80
+      Width = 20
+      TabOrder = 10
+    end
+    object ListBox2: TListBox
+      Left = 8
+      Height = 113
+      Top = 72
+      Width = 328
+      Enabled = False
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clBlue
+      Font.Height = -19
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Items.Strings = (
+        '1) строка переводится в числовую '
+        'последовательность (в соответствии '
+        'с кодировкой таблици ASCII)'
+        '2) Эта числовая последовательность '
+        'находится в ПИ'
+      )
+      ItemHeight = 21
+      ParentFont = False
+      TabOrder = 9
+      Visible = False
+    end
+    object Button4: TButton
+      Left = 304
+      Height = 28
+      Top = 72
+      Width = 32
+      Caption = '?'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -27
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      OnClick = Button4Click
+      ParentFont = False
+      TabOrder = 5
+    end
+    object ProgressBar1: TProgressBar
+      Left = 0
+      Height = 33
+      Top = 384
+      Width = 352
+      Max = 4248070
+      TabOrder = 12
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 416
+    Top = 0
+    Width = 350
+    ClientHeight = 416
+    ClientWidth = 350
+    Color = 16744576
+    ParentColor = False
+    TabOrder = 0
+    object Button2: TButton
+      Left = 0
+      Height = 41
+      Top = 376
+      Width = 352
+      Caption = '"ОК"'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clNavy
+      Font.Height = -27
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      OnClick = Button2Click
+      ParentFont = False
+      TabOrder = 0
+    end
+    object ListBox1: TListBox
+      Left = 16
+      Height = 240
+      Top = 64
+      Width = 320
+      Enabled = False
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Color = clNavy
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      Items.Strings = (
+        '  Мы  можем  гарантировать,  что  любая '
+        'ваша  последовательность  содержится '
+        'в  числе  ПИ  ( т.к. оно бесконечное -_- ). '
+        '  Но  программа  ищет  вашу  последоват '
+        'в   первых  5 000 000  десятичных  знаков '
+        'после запятой  числа  ПИ. Поэтому, если '
+        'последовательность   не   будет   найдена, '
+        'это ваши проблемы и вы не будете иметь '
+        'претензий и говорить, что программа  не'
+        'работает.  Нажимая  кнопку  " ок " ,  вы '
+        'подтверждаете, что всё  это  прочитали  и '
+        'согласны с этим бредом)'
+      )
+      ItemHeight = 19
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+end
