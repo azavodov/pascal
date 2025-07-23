@@ -38,6 +38,23 @@ var
   RadioButton5: RadioButton;
   Button9: Button;
   Button11: Button;
+  Panel3: Panel;
+  TextLabel3: TextLabel;
+  RadioButton6: RadioButton;
+  RadioButton7: RadioButton;
+  RadioButton8: RadioButton;
+  RadioButton9: RadioButton;
+  RadioButton10: RadioButton;
+  Panel4: Panel;
+  TextLabel4: TextLabel;
+  RadioButton11: RadioButton;
+  RadioButton12: RadioButton;
+  RadioButton13: RadioButton;
+  RadioButton14: RadioButton;
+  RadioButton15: RadioButton;
+  TextBox1: TextBox;
+  TextBox2: TextBox;
+  Button13: Button;
   ColorDialog1: ColorDialog;
   SaveDialog1: SaveDialog;
 //$VCLDESIGN-
@@ -146,7 +163,14 @@ end;
    checkbox5.checked:=false;
    w:=PaintBox1.width;
    h:=PaintBox1.Height;
-   Button1OnClick;
+   spinedit1.value:=45;
+
+  For i:=1 to 5 do
+   cvet[i]:=0;
+  for i:=1 to 5 do
+   lw[i]:=0;
+
+ Paintbox1.clear;
 
   assign(f,'graf.pas');
   Reset(f);
@@ -160,6 +184,17 @@ end;
       if i=9 then edit5.text:=copy(s,10,length(s)-10);
     end;
   close(f);
+  
+  CheckBox1.color:=cvet[1];
+  CheckBox2.color:=cvet[2];
+  CheckBox3.color:=cvet[3];
+  CheckBox4.color:=cvet[4];
+  CheckBox5.color:=cvet[5];
+  CheckBox1.font.color:=rgb(255,255,255);
+  CheckBox2.font.color:=rgb(255,255,255);
+  CheckBox3.font.color:=rgb(255,255,255);
+  CheckBox4.font.color:=rgb(255,255,255);
+  CheckBox5.font.color:=rgb(255,255,255);
 
   end;
 
@@ -186,7 +221,6 @@ end;
 
  procedure CheckBox1OnClick;
   begin
-   Paintbox1.clear;
    Button1OnClick;
   end;
 
@@ -210,13 +244,11 @@ end;
 
  procedure CheckBox3OnClick;
   begin
-   Paintbox1.clear;
    Button1OnClick;
   end;
 
  procedure CheckBox4OnClick;
   begin
-   Paintbox1.clear;
    Button1OnClick;
   end;
 
@@ -275,37 +307,19 @@ begin
  paintbox1.savetofile(fn);
 end;
 
-procedure MainMenu1_1_1OnClick;
-begin
- ed:=45;
- cx:=250;
- cy:=250;
- spinedit1.value:=45;
- checkbox1.checked:=false;
- checkbox2.checked:=false;
- checkbox3.checked:=false;
- checkbox4.checked:=false;
- checkbox5.checked:=false;
- Paintbox1.clear;
-end;
-
 procedure Button12OnClick;
 begin
- ed:=45;
- cx:=250;
- cy:=250;
- spinedit1.value:=45;
- checkbox1.checked:=false;
- checkbox2.checked:=false;
- checkbox3.checked:=false;
- checkbox4.checked:=false;
- checkbox5.checked:=false;
- Paintbox1.clear;
+  Form1OnCreate;
+end;
+
+procedure MainMenu1_1_1OnClick;
+begin
+ Form1OnCreate;
 end;
 
 procedure Button10OnClick;
 begin
- if savedialog1.execute then fn:=savedialog1.filename;
+ if savedialog1.execute then fn:=savedialog1.filename+'.jpg';
  paintbox1.savetofile(fn);
 end;
 
@@ -350,9 +364,60 @@ begin
  Button1OnClick;
 end;
 
+procedure Button13OnClick;
+Var a,b,z:real;
+    f1,f2:integer;
+begin
+ Textbox1.caption:='';
+ If radiobutton6.checked=true then f1:=1;
+ If radiobutton7.checked=true then f1:=2;
+ If radiobutton8.checked=true then f1:=3;
+ If radiobutton9.checked=true then f1:=4;
+ If radiobutton10.checked=true then f1:=5;
+ If radiobutton11.checked=true then f2:=1;
+ If radiobutton12.checked=true then f2:=2;
+ If radiobutton13.checked=true then f2:=3;
+ If radiobutton14.checked=true then f2:=4;
+ If radiobutton15.checked=true then f2:=5;
+ a:=cx/ed;
+ b:=(w-cx)/ed;
+ while a<b do
+  Begin
+   If gr(f1,a)-gr(f2,a)<0 then
+   textbox1.caption:=TextBox1.caption+'x = '+floattostr(a);
+   a:=a+0.01;
+  End;
+end;
+
+procedure CheckBox2OnClick;
+begin
+  Button1OnClick;
+end;
+
+
+procedure MainMenu1_2_1OnClick;
+begin
+  Button1OnClick;
+end;
+
+procedure MainMenu1_2_2OnClick;
+begin
+  Button9OnClick;
+end;
+
+procedure MainMenu1_2_3OnClick;
+begin
+  Button11OnClick;
+end;
+
+procedure MainMenu1_2_4OnClick;
+begin
+  Button8OnClick;
+end;
+
  procedure InitControls;
   begin
-  Form1:= Form.Create(0,0,764,627);
+  Form1:= Form.Create(0,0,1005,619);
   Form1.InitControl(True,False,alNone,crDefault,clInactiveBorder,'графики функций','');
   MainMenu1:= MainMenu.Create;
   Form1.Menu:= MainMenu1;
@@ -376,7 +441,7 @@ end;
   Button6.InitControl(True,True,alNone,crDefault,0,'выход','');
   Button7:= Button.Create(Form1,504,520,113,25);
   Button7.InitControl(True,True,alNone,crDefault,0,'очистить','');
-  TextBox3:= TextBox.Create(Form1,552,8,185,137);
+  TextBox3:= TextBox.Create(Form1,240,8,185,137);
   TextBox3.InitControl(True,False,alNone,crDefault,clWindow,'','');
   TextBox3.ScrollBars:= ssNone;
   Button10:= Button.Create(Form1,240,520,113,25);
@@ -413,23 +478,54 @@ end;
   TextLabel2.InitControl(True,True,alNone,crDefault,clSkyBlue,' 1        2        3       4        5','');
   RadioButton1:= RadioButton.Create(Panel2,24,32,17,17);
   RadioButton1.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton1','');
-//  RadioButton1.PopMenu:= 0;
   RadioButton2:= RadioButton.Create(Panel2,64,32,17,17);
   RadioButton2.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton2','');
-//  RadioButton2.PopMenu:= 0;
   RadioButton3:= RadioButton.Create(Panel2,104,32,17,17);
   RadioButton3.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton3','');
-//  RadioButton3.PopMenu:= 0;
   RadioButton4:= RadioButton.Create(Panel2,144,32,17,17);
   RadioButton4.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton4','');
-//  RadioButton4.PopMenu:= 0;
   RadioButton5:= RadioButton.Create(Panel2,184,32,17,17);
   RadioButton5.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton5','');
-//  RadioButton5.PopMenu:= 0;
   Button9:= Button.Create(Panel2,16,56,193,25);
   Button9.InitControl(True,True,alNone,crDefault,0,'цвет','');
   Button11:= Button.Create(Panel2,16,80,193,25);
   Button11.InitControl(True,True,alNone,crDefault,0,'толщина','');
+  Panel3:= Panel.Create(Form1,752,8,225,57);
+  Panel3.InitControl(True,True,alNone,crDefault,clSkyBlue,'','');
+  TextLabel3:= TextLabel.Create(Panel3,24,8,173,20);
+  TextLabel3.InitControl(True,True,alNone,crDefault,clSkyBlue,' 1        2        3       4        5','');
+  RadioButton6:= RadioButton.Create(Panel3,24,32,17,17);
+  RadioButton6.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton6','');
+  RadioButton7:= RadioButton.Create(Panel3,64,32,17,17);
+  RadioButton7.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton7','');
+  RadioButton8:= RadioButton.Create(Panel3,104,32,17,17);
+  RadioButton8.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton8','');
+  RadioButton9:= RadioButton.Create(Panel3,144,32,17,17);
+  RadioButton9.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton9','');
+  RadioButton10:= RadioButton.Create(Panel3,184,32,17,17);
+  RadioButton10.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton10','');
+  Panel4:= Panel.Create(Form1,752,72,225,57);
+  Panel4.InitControl(True,True,alNone,crDefault,clSkyBlue,'','');
+  TextLabel4:= TextLabel.Create(Panel4,24,32,173,20);
+  TextLabel4.InitControl(True,True,alNone,crDefault,clSkyBlue,'1         2        3       4        5','');
+  RadioButton11:= RadioButton.Create(Panel4,24,8,17,17);
+  RadioButton11.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton11','');
+  RadioButton12:= RadioButton.Create(Panel4,64,8,17,17);
+  RadioButton12.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton12','');
+  RadioButton13:= RadioButton.Create(Panel4,104,8,17,17);
+  RadioButton13.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton13','');
+  RadioButton14:= RadioButton.Create(Panel4,144,8,17,17);
+  RadioButton14.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton14','');
+  RadioButton15:= RadioButton.Create(Panel4,184,8,17,17);
+  RadioButton15.InitControl(True,True,alNone,crDefault,clSkyBlue,'RadioButton15','');
+  TextBox1:= TextBox.Create(Form1,752,176,225,161);
+  TextBox1.InitControl(True,True,alNone,crDefault,clWindow,'','');
+  TextBox1.ScrollBars:= ssNone;
+  TextBox2:= TextBox.Create(Form1,752,352,225,193);
+  TextBox2.InitControl(True,True,alNone,crDefault,clWindow,'','');
+  TextBox2.ScrollBars:= ssNone;
+  Button13:= Button.Create(Form1,752,136,225,33);
+  Button13.InitControl(True,True,alNone,crDefault,0,'решить систему','');
   ColorDialog1:= ColorDialog.Create;
   ColorDialog1.Color:= clBlack;
   SaveDialog1:= SaveDialog.Create;
@@ -474,11 +570,34 @@ end;
   RadioButton5.Font.Size:= 12;
   Button9.Font.Size:= 12;
   Button11.Font.Size:= 12;
+  Panel3.Font.Size:= 12;
+  TextLabel3.Font.Size:= 12;
+  RadioButton6.Checked:= True;
+  RadioButton6.Font.Size:= 12;
+  RadioButton7.Font.Size:= 12;
+  RadioButton8.Font.Size:= 12;
+  RadioButton9.Font.Size:= 12;
+  RadioButton10.Font.Size:= 12;
+  Panel4.Font.Size:= 12;
+  TextLabel4.Font.Size:= 12;
+  RadioButton11.Checked:= True;
+  RadioButton11.Font.Size:= 12;
+  RadioButton12.Font.Size:= 12;
+  RadioButton13.Font.Size:= 12;
+  RadioButton14.Font.Size:= 12;
+  RadioButton15.Font.Size:= 12;
+  TextBox1.Font.Size:= 12;
+  TextBox2.Font.Size:= 12;
+  Button13.Font.Size:= 12;
   MainMenu1.Add('Файл');
   MainMenu1.items[1].Add('Новый',MainMenu1_1_1OnClick);
   MainMenu1.items[1].Add('Сохранить',MainMenu1_1_2OnClick);
   MainMenu1.items[1].Add('Выход',MainMenu1_1_6OnClick);
   MainMenu1.Add('Правка');
+  MainMenu1.items[2].Add('построить графики',MainMenu1_2_1OnClick);
+  MainMenu1.items[2].Add('цвет',MainMenu1_2_2OnClick);
+  MainMenu1.items[2].Add('толщина',MainMenu1_2_3OnClick);
+  MainMenu1.items[2].Add('заменить графики',MainMenu1_2_4OnClick);
   MainMenu1.Add('Вид');
   MainMenu1.items[3].Add('очистить',MainMenu1_3_1OnClick);
   MainMenu1.items[3].Add('цвет фона',MainMenu1_3_2OnClick);
@@ -500,9 +619,15 @@ end;
   Button7.OnClick:=Button7OnClick;
   Button10.OnClick:=Button10OnClick;
   Button12.OnClick:=Button12OnClick;
+  CheckBox1.OnClick:=CheckBox1OnClick;
+  CheckBox2.OnClick:=CheckBox2OnClick;
+  CheckBox3.OnClick:=CheckBox3OnClick;
+  CheckBox4.OnClick:=CheckBox4OnClick;
+  CheckBox5.OnClick:=CheckBox5OnClick;
   Button8.OnClick:=Button8OnClick;
   Button9.OnClick:=Button9OnClick;
   Button11.OnClick:=Button11OnClick;
+  Button13.OnClick:=Button13OnClick;
   Form1.Position:= poScreenCenter;
   Form1.OnCreate;
   Form1.Show;
@@ -511,6 +636,95 @@ end;
  begin
   InitControls;
  end.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
